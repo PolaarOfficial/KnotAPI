@@ -44,12 +44,27 @@ Since we are not doing anything else with Twilio, other than polling for the mes
 
 We can then pull in the OTP from GET request, and then leverage it in our login steps, in order to proceed with the Amazon shopping experience.
 
+**Update**
 
+**09/21/2025** Twilio requests confirmation of their short code abilities:
+>However, we have recently added the ability to enable long code phone numbers on your Twilio account to receive these messages. I can help enable this, but first we have to get your consent and acknowledgement of these key details:
+>>This feature, when enabled, will cause your account to receive incoming messages from short code numbers. The setting is account-wide and will affect all the long code numbers that belong to your Twilio account.
+>>Short code numbers can only reach numbers from the same country as the short code. Therefore, you must ensure you're using a Twilio number from the same country as the short code, in order to receive messages. For example, if you are trying to receive messages from a Canada short code, you will need to use a Canada Twilio number.
+>>Twilio cannot guarantee that every short code will be able to reach your Twilio number, even if the Twilio number is from the same country as the short code. There may be cases where a short code carrier does not have reach to Twilio; certain short code providers cannot reach some VoIP platforms. Some companies may also choose not to send to VoIP platforms. This is common with OTP messages from larger companies such as Apple, Microsoft, Google, Facebook, and WhatsApp.
+>>You will not be able to send outbound messages from your Twilio numbers to short codes.
+
+>Lastly, we need to get your confirmation that you have read and understand the following opt-out limitations with this feature from our legal team
+
+I have confirmed.
 
 
 
 ## Usage with AGENTIC Shoppers
-
+Current Idea:
+See if it is possible to automate the deep link shopping flow:
+- Create a deeplink to some random amazon product
+- Hit the API link within the deeplink reference
+- Leverage Playwright to go through the purchase process to simulate the normal human flow
 
 Further research required:
 Deep Link
