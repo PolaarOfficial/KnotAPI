@@ -69,9 +69,23 @@ See if it is possible to automate the deep link shopping flow:
 Further research required:
 Deep Link
 https://developer.amazon.com/docs/reports-promo/deeplink-to-the-amazon-client.html
-Product Search API
-https://developer-docs.amazon.com/amazon-business/docs/product-search-api-v1-reference
+# Product Search API
+**https://developer-docs.amazon.com/amazon-business/docs/product-search-api-v1-reference**
+It looks like the Product Search API is not business specific, and will return values from the general market.
+
+Here is an example search based off the 'Try it Out' functionality on the following page:
+```
+import amazonBusiness from '@api/amazon-business';
+amazonBusiness.searchProductsRequest({keywords: 'laptop', productRegion: 'US', locale: 'en_US'})
+  .then(({ data }) => console.log(data))
+  .catch(err => console.error(err));
 https://webservices.amazon.com/paapi5/documentation/search-items.html
+```
+
+The request provided a massive response, with both non-business specific products, but also further refinement strings which can be leveraged by the agentic shopper to make a personalized suggestion to the shopper.
+
+An example of the laptop returned is here: https://www.amazon.com/dp/B0947BJ67M?ref_=ab_psdp&th=1
+
 Checkout Session API
 https://developer.amazon.com/docs/amazon-pay-api-v2/checkout-session.html
 
