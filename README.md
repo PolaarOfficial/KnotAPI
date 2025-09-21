@@ -79,8 +79,9 @@ import amazonBusiness from '@api/amazon-business';
 amazonBusiness.searchProductsRequest({keywords: 'laptop', productRegion: 'US', locale: 'en_US'})
   .then(({ data }) => console.log(data))
   .catch(err => console.error(err));
-https://webservices.amazon.com/paapi5/documentation/search-items.html
 ```
+
+https://webservices.amazon.com/paapi5/documentation/search-items.html
 
 The request provided a massive response, with both non-business specific products, but also further refinement strings which can be leveraged by the agentic shopper to make a personalized suggestion to the shopper.
 
