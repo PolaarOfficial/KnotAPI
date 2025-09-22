@@ -87,6 +87,10 @@ The request provided a massive response, with both non-business specific product
 
 An example of the laptop returned is here: https://www.amazon.com/dp/B0947BJ67M?ref_=ab_psdp&th=1
 
+I decided to not incorporate a WireMock server due to time, so I copied the json response from the API call on Amazon's Documentation page, and tried to purchase the first product retrieved through the UI, as I did in previous examples above.
+
+Few hicuups: when you get redirected to the url, and signin after attempting to purchase it, you run into a 5XX error, which is easily resolved by using the UI buttons to go back to the homepage. With the new page, you are logged in, with item in cart.
+
 Checkout Session API
 https://developer.amazon.com/docs/amazon-pay-api-v2/checkout-session.html
 
