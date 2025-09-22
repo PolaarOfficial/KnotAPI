@@ -68,7 +68,7 @@ I have confirmed the message, and will be leveraging the messaging system later 
 
 
 
-## Usage with AGENTIC Shoppers
+## Usage with Agentic Shoppers
 Current Idea:
 See if it is possible to automate the deep link shopping flow:
 - Create a deeplink to some random amazon product
