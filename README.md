@@ -64,7 +64,7 @@ Fantastic... I will contact support.
 
 >Lastly, we need to get your confirmation that you have read and understand the following opt-out limitations with this feature from our legal team
 
-I have confirmed.
+I have confirmed the message, and will be leveraging the messaging system later today.
 
 
 
