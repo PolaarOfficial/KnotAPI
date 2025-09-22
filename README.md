@@ -96,6 +96,8 @@ I decided to not incorporate a WireMock server due to time, so I copied the json
 
 Few hicuups: when you get redirected to the url, and signin after attempting to purchase it, you run into a 5XX error, which is easily resolved by using the UI buttons to go back to the homepage. With the new page, you are logged in, with item in cart.
 
+This can be seen in the tests located in ```/tests/AmazonProductSearchAPI.spec.ts```
+
 Checkout Session API
 https://developer.amazon.com/docs/amazon-pay-api-v2/checkout-session.html
 
