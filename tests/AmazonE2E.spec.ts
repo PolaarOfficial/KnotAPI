@@ -1,10 +1,11 @@
-require('dotenv').config()
 import { expect, test } from '@playwright/test';
 import { AmazonPage } from '../pages/amazonPage';
 import { AmazonResultsPage } from '../pages/amazonResultsPage';
 import { AmazonCartPage } from '../pages/amazonCartPage';
 import { AmazonCheckoutPage } from '../pages/amazonCheckoutPage';
 import { AmazonPrimePage } from '../pages/amazonPrimePage';
+import { loginSequence } from '../utils/uiFunctions';
+import { getLatestSms } from '../utils/twilio';
 
 //basic amazon login and credential entry
 test.beforeEach(async ({ page }) => {
@@ -15,14 +16,12 @@ test.beforeEach(async ({ page }) => {
   const amazonPage = new AmazonPage(page);
   await amazonPage.goto();
   await amazonPage.clickLogin();
-  await page.locator('#ap_email_login').fill(EMAIL);
-  await page.locator('#continue').click();
-  await page.locator('#ap_password').fill(PASSWORD);
-  await page.locator('#signInSubmit').click();
+  await loginSequence(page);
+
 });
 
 
-test('Amazon purchase with 2FA', async ({ page }) => {
+test.skip('Amazon purchase with 2FA', async ({ page }) => {
 
 
   //FOR 2FA notifications, we need to either poll or have a local server running to obtain the 2fa key
@@ -30,7 +29,7 @@ test('Amazon purchase with 2FA', async ({ page }) => {
 
 
   let latestSMS = await getLatestSms(process.env.SMS)
-
+  console.log(latestSMS)
   await page.locator('#auth-mfa-otpcode').fill(latestSMS?.body)
 
   //This was used to trigger an automatic click when manually filling in an OTP
@@ -61,7 +60,7 @@ test('Amazon purchase with 2FA', async ({ page }) => {
 
 });
 
-test.only('Amazon purchase without 2FA', async ({ page }) => {
+test('Amazon purchase without 2FA', async ({ page }) => {
 
   const amazonPage = new AmazonPage(page);
   await expect(page).toHaveURL(/^https:\/\/www\.amazon\.com.*/)

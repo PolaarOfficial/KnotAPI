@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { Locator, Page } from "@playwright/test";
 
 export async function clickIfVisible(locator:Locator){
@@ -27,4 +28,14 @@ export async function reloadPageUntilVisible(page:Page, locator:Locator):Promise
     }
     return false;
 
+}
+
+export async function loginSequence(page: Page){
+    const EMAIL = process.env.EMAIL;
+    const PASSWORD = process.env.PASSWORD;
+    if (!EMAIL || !PASSWORD) throw new Error('Set AMAZON_EMAIL and AMAZON_PASSWORD env vars');
+    await page.locator('#ap_email_login').fill(EMAIL);
+    await page.locator('#continue').click();
+    await page.locator('#ap_password').fill(PASSWORD);
+    await page.locator('#signInSubmit').click();
 }
