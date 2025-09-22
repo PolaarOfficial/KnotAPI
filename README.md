@@ -46,6 +46,11 @@ I can then pull in the OTP from GET request, and then leverage it in our login s
 
 **Update**
 
+**09/21/2025** Testing Twilio's Functionality<br>
+I finally got to utilize Twilio's messaging functionality. But of course, there was a hiccup. Checking the messaging logs, I have found out that now I am able to receive messages from Amazon's 2FA! Unfortunately, the message I saw was as following: ```**is your Amazon OTP**``` which led to the following error code documentation: https://www.twilio.com/docs/api/errors/30038
+> Twilio has determined that the body of this message contains a One-Time Passcode (OTP). In order to prevent the abuse of Twilio numbers, Twilio does not generally allow receiving OTP messages. The passcode content has been redacted and the message failed.
+Fantastic... I will contact support.
+
 **09/21/2025** Twilio requests confirmation of their short code abilities:
 >However, we have recently added the ability to enable long code phone numbers on your Twilio account to receive these messages. I can help enable this, but first we have to get your consent and acknowledgement of these key details:
 >>This feature, when enabled, will cause your account to receive incoming messages from short code numbers. The setting is account-wide and will affect all the long code numbers that belong to your Twilio account.
